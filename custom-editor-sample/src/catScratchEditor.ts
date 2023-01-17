@@ -18,6 +18,20 @@ export class CatScratchEditorProvider implements vscode.CustomTextEditorProvider
 	public static register(context: vscode.ExtensionContext): vscode.Disposable {
 		const provider = new CatScratchEditorProvider(context);
 		const providerRegistration = vscode.window.registerCustomEditorProvider(CatScratchEditorProvider.viewType, provider);
+		
+		vscode.commands.registerCommand('catCustoms.catScratch.new', () => {
+			const workspaceFolders = vscode.workspace.workspaceFolders;
+			if (!workspaceFolders) {
+				vscode.window.showErrorMessage("Creating new Cat Scratch files currently requires opening a workspace");
+				return;
+			}
+
+			const uri = vscode.Uri.joinPath(workspaceFolders[0].uri, `new-file.cscratch`)
+				.with({ scheme: 'untitled' });
+
+			vscode.commands.executeCommand('vscode.openWith', uri, CatScratchEditorProvider.viewType);
+		});
+		
 		return providerRegistration;
 	}
 
