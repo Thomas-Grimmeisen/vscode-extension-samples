@@ -1,9 +1,9 @@
 {
 	"name": "cat-customs",
-	"displayName": "Cat Customs",
+	"displayName": "Cat Customs Bug Example",
 	"description": "Custom Editor API Samples",
 	"version": "0.0.1",
-	"publisher": "vscode-samples",
+	"publisher": "debug-test",
 	"private": true,
 	"license": "MIT",
 	"repository": {
@@ -44,6 +44,11 @@
 				"command": "catCustoms.pawDraw.new",
 				"title": "Create new Paw Draw Document",
 				"category": "Paw Draw"
+			},
+			{
+				"command": "catCustoms.catScratch.new",
+				"title": "Create new Cat Scratch Document",
+				"category": "Cat Scratch"
 			}
 		]
 	},
